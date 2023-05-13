@@ -1,18 +1,23 @@
-import './Projects.css';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import './Projects.css'; // import CSS file for styling
 
 function Projects({ projects }) {
-    return projects.map((project) => (
-        <div className="projects-container">
-        <h1>{project.name}</h1>
-        <img src={project.image} alt="Project" className="projects-image" />
-        <a href={project.git}>
-          <button>Github</button>
-        </a>
-        <a href={project.live}>
-          <button>live site</button>
-        </a>
-      </div>
-    ));
-  }
-  
-  export default Projects;
+  return (
+    <div className="projects-container">
+      {projects.map((project) => (
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src={project.image} alt="Project" className="projects-image" />
+          <Card.Body>
+            <Card.Title> {project.name} </Card.Title>
+            <div class="button-container">
+            <Button variant="primary" href={project.live}> Live </Button>
+            <Button variant="primary" href={project.git}> GitHub </Button></div>
+          </Card.Body>
+        </Card>
+      ))}
+    </div>
+  );
+}
+
+export default Projects;

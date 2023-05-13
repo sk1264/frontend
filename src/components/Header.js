@@ -1,31 +1,22 @@
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Nav from 'react-bootstrap/Nav';
 
-function Header(props) {
-  //inline style for the nav tag
-  const navStyle = {
-    display: "flex",
-    justifyContent: "space-around",
-    border: "3px solid black",
-    padding: "8px",
-    width: "90%",
-    margin: "auto",
-  };
-
+function Header() {
   return (
-    <header>
-      <h1>SAMANTHA</h1>
-      <nav style={navStyle}>
-        <Link to="/">
-          <div>HOME</div>
-        </Link>
-        <Link to="/about">
-          <div>ABOUT</div>
-        </Link>
-        <Link to="/projects">
-          <div>PROJECTS</div>
-        </Link>
-      </nav>
-    </header>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Nav variant="pills" defaultActiveKey="/home" style={{ padding: '5 20px' }}>
+        <Nav.Item style={{ paddingRight: '10px' }}>
+          <Nav.Link href="/home">Home</Nav.Link>
+        </Nav.Item>
+        <Nav.Item style={{ paddingRight: '10px' }}>
+          <Nav.Link href="/about">About</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/projects">Projects</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </div>
   );
 }
 
